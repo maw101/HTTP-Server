@@ -23,13 +23,13 @@ public class JavaHTTPServer {
                 requestLine = reader.readLine();
             }
             */
-            
+
             try (Socket client = server.accept()) {
                 // prepare response
                 String httpResponse = "HTTP/1.1 200 OK\n";
                 long millis = System.currentTimeMillis();
-
-
+                // send response
+                client.getOutputStream().write(httpResponse.getBytes("UTF-8"));
             }
         }
     }
