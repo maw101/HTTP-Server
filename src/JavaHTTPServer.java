@@ -4,8 +4,18 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+
+/**
+ * The type Java HTTP Server.
+ */
 public class JavaHTTPServer {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws IOException the IO exception
+     */
     public static void main(String[] args) throws IOException {
         final ServerSocket server = new ServerSocket(8080);
         System.out.println("Listening for connection on port 8080.");
@@ -30,7 +40,7 @@ public class JavaHTTPServer {
                 String httpResponse = "HTTP/1.1 200 OK\nMillis = " + millis + "\n"; // print current time in millis
                 // send response
                 client.getOutputStream().write(httpResponse.getBytes("UTF-8"));
-            }
+            } // try with automatically closes the socket once response received
         }
     }
 
