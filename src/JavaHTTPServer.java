@@ -9,7 +9,7 @@ public class JavaHTTPServer {
     public static void main(String[] args) throws IOException {
         final ServerSocket server = new ServerSocket(8080);
         System.out.println("Listening for connection on port 8080.");
-        while(true) {
+        while (true) {
             // read request, prepare response, send response, close socket
 
             /* read GET request
@@ -26,8 +26,8 @@ public class JavaHTTPServer {
 
             try (Socket client = server.accept()) {
                 // prepare response
-                String httpResponse = "HTTP/1.1 200 OK\n";
                 long millis = System.currentTimeMillis();
+                String httpResponse = "HTTP/1.1 200 OK\nMillis = " + millis + "\n"; // print current time in millis
                 // send response
                 client.getOutputStream().write(httpResponse.getBytes("UTF-8"));
             }
