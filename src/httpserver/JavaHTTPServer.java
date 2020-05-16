@@ -3,6 +3,7 @@ package httpserver;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 
 /**
@@ -39,7 +40,7 @@ public class JavaHTTPServer {
                 long millis = System.currentTimeMillis();
                 String httpResponse = "HTTP/1.1 200 OK\nMillis = " + millis + "\n"; // print current time in millis
                 // send response
-                client.getOutputStream().write(httpResponse.getBytes("UTF-8"));
+                client.getOutputStream().write(httpResponse.getBytes(StandardCharsets.UTF_8));
             } // try with automatically closes the socket once response received
         }
     }
